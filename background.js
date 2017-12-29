@@ -9,7 +9,6 @@ function checkTime() {
 			.toTimeString()
 			.substring(0, 5);
 		if( debug )
-			console.log(time, setTime, set)
 		if ( set && setTime === time ){
 			chrome.storage.sync.set({'set': false}, () => {
 				alert('bed time');
