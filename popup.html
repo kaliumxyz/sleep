@@ -2,26 +2,42 @@
 <html>
 	<head>
 		<title>sleep</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<style type="text/css">
-		body{
-			margin:10px;
-			white-space:nowrap;
-		}
+			body {
+				font-family: 'Roboto', sans-serif;
+				margin: 0;
+				margin-bottom: 10px;
+				white-space:nowrap;
+				background: #e5e5e5;
 
-		h1{
-			font-size:15px;
-		}
+			}
 
-		#container{
-			align-items:center;
-			display:flex;
-			justify-content:space-between;
-		}
+			h1 {
+				font-size:30px;
+				color: white;
+				background: #333;
+				padding: 5px;
+				margin: 0px;
+				text-align: center;
+
+			}
+
+			#container {
+				align-items:center;
+				display:flex;
+				justify-content:space-between;
+				margin: 10px;
+			}
+			button, input {
+				background: white;
+				border: 1px solid #EEE;
+			}
 		</style>
 		<script src="popup.js"></script>
 	</head>
 	<body>
-		<h1>sleep</h1>
+		<h1>Sleep</h1>
 		<div id="container">
 		<span>time: </span>
 		<input type="time" value='22:00'>
