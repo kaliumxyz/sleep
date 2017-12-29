@@ -15,6 +15,11 @@ function checkTime() {
 				alert('bed time');
 			});
 		}
+		if ( !set && setTime[4] < time[4] ){
+			chrome.storage.sync.set({'set': true}, () => {
+			});
+		}
+		
 	});
 };
 
