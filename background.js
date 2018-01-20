@@ -1,7 +1,7 @@
 "use strict";
 
 function checkTime() {
-	chrome.storage.sync.get(['time','set'], value => {
+	chrome.storage.sync.get(['time','set', 'disabled'], value => {
 		const debug = true;
 		const set = value.set;
 		const setTime = value.time;
@@ -9,6 +9,7 @@ function checkTime() {
 			.toTimeString()
 			.substring(0, 5);
 		if( debug )
+		if (!value.disabled)
 		if ( set && setTime === time ){
 			chrome.storage.sync.set({'set': false}, () => {
 				alert('bed time');
