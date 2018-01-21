@@ -9,15 +9,23 @@ document.addEventListener('DOMContentLoaded', ev => {
 		chrome.storage.sync.get(['disabled'], value => {
 			let disabled = value.disabled
 			chrome.storage.sync.set({'disabled': !disabled}, () => {
-				disable.classList.toggle('disabled')
-				disable.innerHTML = disable.classList.contains('disabled')?'disabled':'enabled'
+				if (disable.classList.contains('disabled')){
+					disable.classList.remove('disabled')
+					disable.innerHTML = 'enable'
+					chrome.runtime.sendMessage({ "newIconPath" : '/icon128.png' });
+				} else {
+					disable.classList.add('disabled')
+					disable.innerHTML = 'disable'
+					chrome.runtime.sendMessage({ "newIconPath" : '/icon128-off.png' });
+				}
 			})
 		})
 	}
 	chrome.storage.sync.get(['disabled'], value => {
 		if(!value.disabled){
 			disable.classList.remove('disabled')
-			disable.innerHTML = 'enabled'
+			disable.innerHTML = 'enable'
+			chrome.runtime.sendMessage({ "newIconPath" : '/icon128-off.png' });
 		}
 
 	})

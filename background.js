@@ -22,5 +22,18 @@ function checkTime() {
 		
 	});
 };
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        // read `newIconPath` from request and read `tab.id` from sender
+	chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
+	     var activeTab = arrayOfTabs[0];
+	     var activeTabId = activeTab.id;
+		chrome.browserAction.setIcon({
+		    path: request.newIconPath,
+		    tabId: activeTabId
+		}, console.log);
+	  });
+    });
+
 
 setInterval(checkTime, 1000)
